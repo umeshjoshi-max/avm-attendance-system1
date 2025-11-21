@@ -1,0 +1,51 @@
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "com.avm.attendance"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 1
+        versionName "1.0"
+    }
+
+    signingConfigs {
+        // Placeholder signing config - fill locally or use CI secrets if you want signed APK.
+        release {
+            // storeFile file("avm_keystore.jks")
+            // storePassword "avm123"
+            // keyAlias "avm_attendance"
+            // keyPassword "avm123"
+        }
+    }
+
+    buildTypes {
+        debug {
+        }
+        release {
+            // For CI unsigned release; if you add signing config, enable below
+            // signingConfig signingConfigs.release
+            minifyEnabled false
+            shrinkResources false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.7.0"
+}
